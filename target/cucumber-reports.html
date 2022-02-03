@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cucumber</title>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<style>
+.cucumber-react .cucumber-status--passed {
+  color: #2CB14A;
+}
+.cucumber-react .cucumber-status--skipped {
+  color: #00A0CC;
+}
+.cucumber-react .cucumber-status--pending {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--undefined {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--ambiguous {
+  color: #F4EBFD;
+}
+.cucumber-react .cucumber-status--failed {
+  color: #BB0000;
+}
+.cucumber-react .cucumber-status--unknown {
+  color: #B6BECB;
+}
+.cucumber-react h1, .cucumber-react h2, .cucumber-react h3 {
+  padding: 0;
+  margin: 0;
+}
+.cucumber-react a {
+  color: inherit;
+}
+.cucumber-react .gherkin-document-list {
+  font: 14px "Open Sans", sans-serif;
+  color: #161C24;
+  background: #fff;
+  overflow-x: hidden;
+}
+.cucumber-react .cucumber-title {
+  margin-top: 0.3em;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.cucumber-react .cucumber-title__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-title__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-tags {
+  padding: 0;
+  margin-bottom: 0;
+}
+.cucumber-react .cucumber-tags .cucumber-tag {
+  display: inline;
+  list-style-type: none;
+  padding: 4px 8px 4px 8px;
+  margin-right: 6px;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+}
+.cucumber-react .cucumber-feature__icon {
+  padding-top: 0.35em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-description,
+.cucumber-react .cucumber-children {
+  margin-left: 1em;
+}
+.cucumber-react .cucumber-feature,
+.cucumber-react .cucumber-rule,
+.cucumber-react .cucumber-scenario,
+.cucumber-react .cucumber-background {
+  margin-bottom: 1em;
+}
+.cucumber-react .cucumber-steps {
+  list-style-type: none;
+  padding-left: 10px;
+}
+.cucumber-react .cucumber-steps .cucumber-step {
+  display: flex;
+}
+.cucumber-react .cucumber-steps .cucumber-step__status {
+  padding-top: 0.2em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-steps .cucumber-step__content {
+  flex-grow: 1;
+  max-width: calc(100% - 1.5em);
+}
+.cucumber-react .cucumber-steps .cucumber-step__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-steps .cucumber-step__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-steps .cucumber-step__param {
+  font-weight: normal;
+  font-style: italic;
+}
+.cucumber-react .cucumber-table {
+  border-collapse: collapse;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.cucumber-react .cucumber-table__header-cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell__status {
+  padding: 0.5em 3px 3px 3px;
+}
+.cucumber-react .cucumber-table__cell__step {
+  flex-grow: 1;
+}
+.cucumber-react .cucumber-code {
+  padding: 0.25em;
+  background-color: #ebebeb;
+}
+.cucumber-react .cucumber-error {
+  padding: 0.5em;
+  margin: 0;
+  overflow-x: auto;
+}
+.cucumber-react .cucumber-no-documents {
+  font: 14px "Open Sans", sans-serif;
+}
+.cucumber-react .cucumber-attachment__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-attachment__image {
+  max-width: 100%;
+  margin-top: 1em;
+}
+.cucumber-react .cucumber-attachment__text {
+  background-color: #ebebeb;
+  padding: 0.5em;
+  overflow-x: auto;
+}
+.cucumber-react .cucumber-anchor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 0.3em;
+}
+.cucumber-react .cucumber-anchor__link {
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+  position: absolute;
+  left: -20px;
+  display: flex;
+  align-items: center;
+}
+.cucumber-react .cucumber-anchor__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-anchor:hover a {
+  opacity: 1;
+  width: max-content;
+  transition: all 0.35s ease-in-out;
+}
+.cucumber-react .cucumber-anchor > * {
+  height: 100%;
+  margin-top: 0px;
+}
+
+.cucumber-report-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font: 11px "Open Sans", sans-serif;
+  margin-bottom: 1em;
+}
+.cucumber-report-header > * {
+  padding: 1em;
+}
+.cucumber-report-header .cucumber-status-filter {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-status-filter table {
+  width: 100%;
+}
+.cucumber-report-header .cucumber-execution-data {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-search-bar {
+  border-right: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search input {
+  padding: 0.4em;
+  border-radius: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search button {
+  height: 2.2em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar p.help {
+  font-size: 80%;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul {
+  display: inline;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li input {
+  display: inline-block;
+  width: auto;
+  height: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li label {
+  padding-right: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: 1/-1;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-execution-data {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: auto;
+  }
+}
+.accordion {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.accordion__item + .accordion__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion__button {
+    background-color: #f4f4f4;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+}
+
+.accordion__button:hover {
+    background-color: #ddd;
+}
+
+.accordion__button:before {
+    display: inline-block;
+    content: '';
+    height: 10px;
+    width: 10px;
+    margin-right: 12px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+
+.accordion__button[aria-expanded='true']::before,
+.accordion__button[aria-selected='true']::before {
+    transform: rotate(45deg);
+}
+
+.accordion__panel {
+    padding: 20px;
+    animation: fadein 0.35s ease-in;
+}
+
+	</style>
+</head>
+<body>
+<div id="content">
+</div>
+<script>
+window.CUCUMBER_MESSAGES = [{"meta":{"protocolVersion":"14.0.1","implementation":{"name":"cucumber-jvm","version":"6.10.2"},"runtime":{"name":"OpenJDK 64-Bit Server VM","version":"15.0.1+9-18"},"os":{"name":"Windows 10"},"cpu":{"name":"amd64"}}},{"testRunStarted":{"timestamp":{"seconds":"1643742511","nanos":536393400}}},{"source":{"uri":"file:///C:/Users/User/eclipse-workspace/CucumberJavaDevTools/src/test/resources/Features/TestScenarioDevTools.feature","data":"Feature: Console logs in devtools\r\n\r\nScenario Outline: Verify Console errors\r\n \r\nGiven Browser is open and user navigate to \"\u003cw3website\u003e\"\r\nThen get and verify console logs\r\n\r\n\r\nExamples:\r\n| w3website |\r\n| https://www.w3.org/standards/webdesign/htmlcss |\r\n| https://www.w3.org/standards/webofdevices/multimodal |\r\n| https://www.w3.org/standards/badpage |\r\n\r\n\r\n\r\nScenario Outline: get response code\r\n \r\nGiven Browser is open and user navigate to \"\u003cw3website\u003e\"\r\nThen get and verify response code \"\u003cw3website\u003e\"\r\n\r\n\r\nExamples:\r\n| w3website |\r\n| https://www.w3.org/standards/webdesign/htmlcss |\r\n| https://www.w3.org/standards/webofdevices/multimodal |\r\n| https://www.w3.org/standards/badpage |\r\n\r\n\r\n\r\n\r\nScenario Outline: get all links\r\n \r\nGiven Browser is open and user navigate to \"\u003cw3website\u003e\"\r\nThen get all links\r\n\r\n\r\nExamples:\r\n| w3website |\r\n| https://www.w3.org/standards/webdesign/htmlcss |\r\n| https://www.w3.org/standards/webofdevices/multimodal |\r\n| https://www.w3.org/standards/badpage |\r\n\r\n","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///C:/Users/User/eclipse-workspace/CucumberJavaDevTools/src/test/resources/Features/TestScenarioDevTools.feature","feature":{"location":{"line":1,"column":1},"language":"en","keyword":"Feature","name":"Console logs in devtools","children":[{"scenario":{"location":{"line":3,"column":1},"keyword":"Scenario Outline","name":"Verify Console errors","steps":[{"location":{"line":5,"column":1},"keyword":"Given ","text":"Browser is open and user navigate to \"\u003cw3website\u003e\"","id":"9417fc7c-083b-4ae3-a10a-2af8b2f1f5d4"},{"location":{"line":6,"column":1},"keyword":"Then ","text":"get and verify console logs","id":"f102e0e5-8f81-496b-8435-05d31893034e"}],"examples":[{"location":{"line":9,"column":1},"keyword":"Examples","tableHeader":{"location":{"line":10,"column":1},"cells":[{"location":{"line":10,"column":3},"value":"w3website"}],"id":"35cfebef-b8d2-42fe-9faf-5eaca283b6ec"},"tableBody":[{"location":{"line":11,"column":1},"cells":[{"location":{"line":11,"column":3},"value":"https://www.w3.org/standards/webdesign/htmlcss"}],"id":"745763a1-d042-46ee-b40e-67fd72839790"},{"location":{"line":12,"column":1},"cells":[{"location":{"line":12,"column":3},"value":"https://www.w3.org/standards/webofdevices/multimodal"}],"id":"cb7a4d2e-43fa-43ac-a2a0-546040a013b1"},{"location":{"line":13,"column":1},"cells":[{"location":{"line":13,"column":3},"value":"https://www.w3.org/standards/badpage"}],"id":"93481fc8-72bd-4e96-9839-622c9d523447"}],"id":"328e095f-4fc4-4448-864c-147cbc20d453"}],"id":"8572e150-069d-4c82-a3aa-8688dc9b056c"}},{"scenario":{"location":{"line":17,"column":1},"keyword":"Scenario Outline","name":"get response code","steps":[{"location":{"line":19,"column":1},"keyword":"Given ","text":"Browser is open and user navigate to \"\u003cw3website\u003e\"","id":"4f244b1b-5f64-40b1-ad36-f4a1d979ae91"},{"location":{"line":20,"column":1},"keyword":"Then ","text":"get and verify response code \"\u003cw3website\u003e\"","id":"8bfd8b45-642f-45e2-81b9-47133da45213"}],"examples":[{"location":{"line":23,"column":1},"keyword":"Examples","tableHeader":{"location":{"line":24,"column":1},"cells":[{"location":{"line":24,"column":3},"value":"w3website"}],"id":"2a3501ee-5315-449b-986d-5d56bb4c48f8"},"tableBody":[{"location":{"line":25,"column":1},"cells":[{"location":{"line":25,"column":3},"value":"https://www.w3.org/standards/webdesign/htmlcss"}],"id":"72cf68a7-18d9-488f-9c88-d06549b42697"},{"location":{"line":26,"column":1},"cells":[{"location":{"line":26,"column":3},"value":"https://www.w3.org/standards/webofdevices/multimodal"}],"id":"8475381b-0158-4a02-9087-b58a92e38dc2"},{"location":{"line":27,"column":1},"cells":[{"location":{"line":27,"column":3},"value":"https://www.w3.org/standards/badpage"}],"id":"4d5e7b29-4e9a-4978-bb3b-5220e52b693c"}],"id":"b6c6403b-07d8-43a1-b269-ddedc11d463e"}],"id":"8e37b88a-fde6-4f09-a112-a47fbc1425e7"}},{"scenario":{"location":{"line":32,"column":1},"keyword":"Scenario Outline","name":"get all links","steps":[{"location":{"line":34,"column":1},"keyword":"Given ","text":"Browser is open and user navigate to \"\u003cw3website\u003e\"","id":"aacc5e9e-68ec-4ecc-a3a9-c1696ad0f371"},{"location":{"line":35,"column":1},"keyword":"Then ","text":"get all links","id":"c4960449-7bd7-4a5d-a5e3-ed33120657cc"}],"examples":[{"location":{"line":38,"column":1},"keyword":"Examples","tableHeader":{"location":{"line":39,"column":1},"cells":[{"location":{"line":39,"column":3},"value":"w3website"}],"id":"e2cb7e55-1d5e-4f75-a4a1-99f632ffbd27"},"tableBody":[{"location":{"line":40,"column":1},"cells":[{"location":{"line":40,"column":3},"value":"https://www.w3.org/standards/webdesign/htmlcss"}],"id":"62190f43-ea42-4c5b-b7ba-c0f14aff29b9"},{"location":{"line":41,"column":1},"cells":[{"location":{"line":41,"column":3},"value":"https://www.w3.org/standards/webofdevices/multimodal"}],"id":"28bc8a49-0744-4693-a3c9-8e9278d88207"},{"location":{"line":42,"column":1},"cells":[{"location":{"line":42,"column":3},"value":"https://www.w3.org/standards/badpage"}],"id":"9f6c8f7a-b322-431b-9576-db1fb1a3249a"}],"id":"8fe101e6-0ec7-431c-873a-5a61f909260f"}],"id":"b108e3ee-648f-4545-8125-ff64e8c2f44f"}}]}}},{"pickle":{"id":"2f79f366-b56d-4d31-9955-8c3a851ba9d7","uri":"file:///C:/Users/User/eclipse-workspace/CucumberJavaDevTools/src/test/resources/Features/TestScenarioDevTools.feature","name":"Verify Console errors","language":"en","steps":[{"text":"Browser is open and user navigate to \"https://www.w3.org/standards/webdesign/htmlcss\"","id":"904a9592-251c-425b-99c7-f2c2912c34dc","astNodeIds":["9417fc7c-083b-4ae3-a10a-2af8b2f1f5d4","745763a1-d042-46ee-b40e-67fd72839790"]},{"text":"get and verify console logs","id":"a1daccc3-635b-4c04-948a-557460c7f714","astNodeIds":["f102e0e5-8f81-496b-8435-05d31893034e","745763a1-d042-46ee-b40e-67fd72839790"]}],"astNodeIds":["8572e150-069d-4c82-a3aa-8688dc9b056c","745763a1-d042-46ee-b40e-67fd72839790"]}},{"pickle":{"id":"44439017-2714-4de4-a818-036240c5bd1b","uri":"file:///C:/Users/User/eclipse-workspace/CucumberJavaDevTools/src/test/resources/Features/TestScenarioDevTools.feature","name":"Verify Console errors","language":"en","steps":[{"text":"Browser is open and user navigate to \"https://www.w3.org/standards/webofdevices/multimodal\"","id":"5f035411-c952-4b5d-b7c0-1b3bcf1b1a5c","astNodeIds":["9417fc7c-083b-4ae3-a10a-2af8b2f1f5d4","cb7a4d2e-43fa-43ac-a2a0-546040a013b1"]},{"text":"get and verify console logs","id":"bb084708-f6b8-4c46-b915-cba8d5821e41","astNodeIds":["f102e0e5-8f81-496b-8435-05d31893034e","cb7a4d2e-43fa-43ac-a2a0-546040a013b1"]}],"astNodeIds":["8572e150-069d-4c82-a3aa-8688dc9b056c","cb7a4d2e-43fa-43ac-a2a0-546040a013b1"]}},{"pickle":{"id":"d17dd0a6-2bef-4633-b368-241f134b5a7d","uri":"file:///C:/Users/User/eclipse-workspace/CucumberJavaDevTools/src/test/resources/Features/TestScenarioDevTools.feature","name":"Verify Console errors","language":"en","steps":[{"text":"Browser is open and user navigate to \"https://www.w3.org/standards/badpage\"","id":"b235373c-e2f6-4351-8c09-ee2caa7d29ee","astNodeIds":["9417fc7c-083b-4ae3-a10a-2af8b2f1f5d4","93481fc8-72bd-4e96-9839-622c9d523447"]},{"text":"get and verify console logs","id":"aa3dcb0c-0d84-477c-a6eb-1f01e449c4f1","astNodeIds":["f102e0e5-8f81-496b-8435-05d31893034e","93481fc8-72bd-4e96-9839-622c9d523447"]}],"astNodeIds":["8572e150-069d-4c82-a3aa-8688dc9b056c","93481fc8-72bd-4e96-9839-622c9d523447"]}},{"pickle":{"id":"a2849682-beaf-4391-95d8-e0271ed25d3b","uri":"file:///C:/Users/User/eclipse-workspace/CucumberJavaDevTools/src/test/resources/Features/TestScenarioDevTools.feature","name":"get response code","language":"en","steps":[{"text":"Browser is open and user navigate to \"https://www.w3.org/standards/webdesign/htmlcss\"","id":"849d8852-d30f-4f3d-81cc-538b730ce1db","astNodeIds":["4f244b1b-5f64-40b1-ad36-f4a1d979ae91","72cf68a7-18d9-488f-9c88-d06549b42697"]},{"text":"get and verify response code \"https://www.w3.org/standards/webdesign/htmlcss\"","id":"41f57560-8753-473c-823c-1c7c735c30e1","astNodeIds":["8bfd8b45-642f-45e2-81b9-47133da45213","72cf68a7-18d9-488f-9c88-d06549b42697"]}],"astNodeIds":["8e37b88a-fde6-4f09-a112-a47fbc1425e7","72cf68a7-18d9-488f-9c88-d06549b42697"]}},{"pickle":{"id":"98765461-9450-4d99-b6bf-e9a30fe38c3a","uri":"file:///C:/Users/User/eclipse-workspace/CucumberJavaDevTools/src/test/resources/Features/TestScenarioDevTools.feature","name":"get response code","language":"en","steps":[{"text":"Browser is open and user navigate to \"https://www.w3.org/standards/webofdevices/multimodal\"","id":"5fcb5a26-1740-4a00-b7d1-fa00957915e5","astNodeIds":["4f244b1b-5f64-40b1-ad36-f4a1d979ae91","8475381b-0158-4a02-9087-b58a92e38dc2"]},{"text":"get and verify response code \"https://www.w3.org/standards/webofdevices/multimodal\"","id":"4bba7fc9-3ffc-4f44-9cf9-98bb30e29f03","astNodeIds":["8bfd8b45-642f-45e2-81b9-47133da45213","8475381b-0158-4a02-9087-b58a92e38dc2"]}],"astNodeIds":["8e37b88a-fde6-4f09-a112-a47fbc1425e7","8475381b-0158-4a02-9087-b58a92e38dc2"]}},{"pickle":{"id":"e4b0d45b-88f8-4fd9-9151-9ae6985a8fd3","uri":"file:///C:/Users/User/eclipse-workspace/CucumberJavaDevTools/src/test/resources/Features/TestScenarioDevTools.feature","name":"get response code","language":"en","steps":[{"text":"Browser is open and user navigate to \"https://www.w3.org/standards/badpage\"","id":"01be4484-3f75-45d1-9def-d644f088c659","astNodeIds":["4f244b1b-5f64-40b1-ad36-f4a1d979ae91","4d5e7b29-4e9a-4978-bb3b-5220e52b693c"]},{"text":"get and verify response code \"https://www.w3.org/standards/badpage\"","id":"f679a08b-ab14-46b0-b4a1-05568c44e914","astNodeIds":["8bfd8b45-642f-45e2-81b9-47133da45213","4d5e7b29-4e9a-4978-bb3b-5220e52b693c"]}],"astNodeIds":["8e37b88a-fde6-4f09-a112-a47fbc1425e7","4d5e7b29-4e9a-4978-bb3b-5220e52b693c"]}},{"pickle":{"id":"5813b2bc-f748-4260-95f9-a5882d04bff3","uri":"file:///C:/Users/User/eclipse-workspace/CucumberJavaDevTools/src/test/resources/Features/TestScenarioDevTools.feature","name":"get all links","language":"en","steps":[{"text":"Browser is open and user navigate to \"https://www.w3.org/standards/webdesign/htmlcss\"","id":"a110cc69-2f87-48e3-afd5-64520ca6b44a","astNodeIds":["aacc5e9e-68ec-4ecc-a3a9-c1696ad0f371","62190f43-ea42-4c5b-b7ba-c0f14aff29b9"]},{"text":"get all links","id":"96ea31b9-0f98-47e3-84e5-19401d7a8dd4","astNodeIds":["c4960449-7bd7-4a5d-a5e3-ed33120657cc","62190f43-ea42-4c5b-b7ba-c0f14aff29b9"]}],"astNodeIds":["b108e3ee-648f-4545-8125-ff64e8c2f44f","62190f43-ea42-4c5b-b7ba-c0f14aff29b9"]}},{"pickle":{"id":"7b4e2f26-d40d-45c7-aedb-7a684b3bc617","uri":"file:///C:/Users/User/eclipse-workspace/CucumberJavaDevTools/src/test/resources/Features/TestScenarioDevTools.feature","name":"get all links","language":"en","steps":[{"text":"Browser is open and user navigate to \"https://www.w3.org/standards/webofdevices/multimodal\"","id":"653b45ed-ee38-4997-a0eb-289098ee9da3","astNodeIds":["aacc5e9e-68ec-4ecc-a3a9-c1696ad0f371","28bc8a49-0744-4693-a3c9-8e9278d88207"]},{"text":"get all links","id":"c4f72ea0-7bc3-4447-b4a2-b2f87095d67b","astNodeIds":["c4960449-7bd7-4a5d-a5e3-ed33120657cc","28bc8a49-0744-4693-a3c9-8e9278d88207"]}],"astNodeIds":["b108e3ee-648f-4545-8125-ff64e8c2f44f","28bc8a49-0744-4693-a3c9-8e9278d88207"]}},{"pickle":{"id":"74961793-13ae-48a3-b3f3-1f223b8d489b","uri":"file:///C:/Users/User/eclipse-workspace/CucumberJavaDevTools/src/test/resources/Features/TestScenarioDevTools.feature","name":"get all links","language":"en","steps":[{"text":"Browser is open and user navigate to \"https://www.w3.org/standards/badpage\"","id":"0a395796-e301-4444-97d4-bc4de0276184","astNodeIds":["aacc5e9e-68ec-4ecc-a3a9-c1696ad0f371","9f6c8f7a-b322-431b-9576-db1fb1a3249a"]},{"text":"get all links","id":"b20a2297-d507-46a5-8f61-d81582c1cbdb","astNodeIds":["c4960449-7bd7-4a5d-a5e3-ed33120657cc","9f6c8f7a-b322-431b-9576-db1fb1a3249a"]}],"astNodeIds":["b108e3ee-648f-4545-8125-ff64e8c2f44f","9f6c8f7a-b322-431b-9576-db1fb1a3249a"]}},{"testCase":{"id":"85c4ef96-cc15-48c4-bf39-412ffb224ab0","pickleId":"2f79f366-b56d-4d31-9955-8c3a851ba9d7","testSteps":[{"id":"6744c379-537c-4a0a-a9b2-849c31be5f64","pickleStepId":"904a9592-251c-425b-99c7-f2c2912c34dc","stepDefinitionIds":["fc9f842a-3541-4564-bf02-fe90b4be5510"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"string","group":{"start":37,"value":"\"https://www.w3.org/standards/webdesign/htmlcss\"","children":[{"start":38,"value":"https://www.w3.org/standards/webdesign/htmlcss","children":[{}]},{"children":[{}]}]}}]}]},{"id":"0e664dce-798b-4696-abd7-42d18d0a893a","pickleStepId":"a1daccc3-635b-4c04-948a-557460c7f714","stepDefinitionIds":["c76e64f3-b69f-45ad-a1ce-7297f62f521b"],"stepMatchArgumentsLists":[{}]}]}},{"testCaseStarted":{"timestamp":{"seconds":"1643742511","nanos":985190900},"testCaseId":"85c4ef96-cc15-48c4-bf39-412ffb224ab0","id":"908c713d-bc3e-46fd-9148-952f1f76a498"}},{"testStepStarted":{"timestamp":{"seconds":"1643742511","nanos":994168000},"testStepId":"6744c379-537c-4a0a-a9b2-849c31be5f64","testCaseStartedId":"908c713d-bc3e-46fd-9148-952f1f76a498"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"5","nanos":635923800}},"timestamp":{"seconds":"1643742517","nanos":630091800},"testStepId":"6744c379-537c-4a0a-a9b2-849c31be5f64","testCaseStartedId":"908c713d-bc3e-46fd-9148-952f1f76a498"}},{"testStepStarted":{"timestamp":{"seconds":"1643742517","nanos":640065700},"testStepId":"0e664dce-798b-4696-abd7-42d18d0a893a","testCaseStartedId":"908c713d-bc3e-46fd-9148-952f1f76a498"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":14958200}},"timestamp":{"seconds":"1643742517","nanos":655023900},"testStepId":"0e664dce-798b-4696-abd7-42d18d0a893a","testCaseStartedId":"908c713d-bc3e-46fd-9148-952f1f76a498"}},{"testCaseFinished":{"timestamp":{"seconds":"1643742517","nanos":656022700},"testCaseStartedId":"908c713d-bc3e-46fd-9148-952f1f76a498"}},{"testCase":{"id":"02dbcc09-d48b-478d-9f70-63387f386ebe","pickleId":"44439017-2714-4de4-a818-036240c5bd1b","testSteps":[{"id":"0e4cd65e-0c1c-40c5-9575-7a14e67e67e9","pickleStepId":"5f035411-c952-4b5d-b7c0-1b3bcf1b1a5c","stepDefinitionIds":["3b6365c0-6894-4b68-82da-bcc7e9965cfc"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"string","group":{"start":37,"value":"\"https://www.w3.org/standards/webofdevices/multimodal\"","children":[{"start":38,"value":"https://www.w3.org/standards/webofdevices/multimodal","children":[{}]},{"children":[{}]}]}}]}]},{"id":"b1401d80-b1d8-4079-9025-272171c22e98","pickleStepId":"bb084708-f6b8-4c46-b915-cba8d5821e41","stepDefinitionIds":["d3d18f4c-f629-4a21-aae4-97063d038ebc"],"stepMatchArgumentsLists":[{}]}]}},{"testCaseStarted":{"timestamp":{"seconds":"1643742517","nanos":664998200},"testCaseId":"02dbcc09-d48b-478d-9f70-63387f386ebe","id":"8b0a5751-fb29-4982-af8a-67d68d61d051"}},{"testStepStarted":{"timestamp":{"seconds":"1643742517","nanos":666992300},"testStepId":"0e4cd65e-0c1c-40c5-9575-7a14e67e67e9","testCaseStartedId":"8b0a5751-fb29-4982-af8a-67d68d61d051"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"4","nanos":314459400}},"timestamp":{"seconds":"1643742521","nanos":981451700},"testStepId":"0e4cd65e-0c1c-40c5-9575-7a14e67e67e9","testCaseStartedId":"8b0a5751-fb29-4982-af8a-67d68d61d051"}},{"testStepStarted":{"timestamp":{"seconds":"1643742521","nanos":982449300},"testStepId":"b1401d80-b1d8-4079-9025-272171c22e98","testCaseStartedId":"8b0a5751-fb29-4982-af8a-67d68d61d051"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"nanos":5983900}},"timestamp":{"seconds":"1643742521","nanos":988433200},"testStepId":"b1401d80-b1d8-4079-9025-272171c22e98","testCaseStartedId":"8b0a5751-fb29-4982-af8a-67d68d61d051"}},{"testCaseFinished":{"timestamp":{"seconds":"1643742521","nanos":989430500},"testCaseStartedId":"8b0a5751-fb29-4982-af8a-67d68d61d051"}},{"testCase":{"id":"1c987bc6-8d95-4328-bf22-eb6d75307061","pickleId":"d17dd0a6-2bef-4633-b368-241f134b5a7d","testSteps":[{"id":"24ce0de3-c5e5-4065-a5c1-ef26593fbeb2","pickleStepId":"b235373c-e2f6-4351-8c09-ee2caa7d29ee","stepDefinitionIds":["d155cd76-71bb-42c4-b675-e21763ee41b6"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"string","group":{"start":37,"value":"\"https://www.w3.org/standards/badpage\"","children":[{"start":38,"value":"https://www.w3.org/standards/badpage","children":[{}]},{"children":[{}]}]}}]}]},{"id":"37fca67b-1b44-4849-93a2-b73ddc072d2f","pickleStepId":"aa3dcb0c-0d84-477c-a6eb-1f01e449c4f1","stepDefinitionIds":["b7827d79-adc0-4b1d-867d-34d568466e2b"],"stepMatchArgumentsLists":[{}]}]}},{"testCaseStarted":{"timestamp":{"seconds":"1643742521","nanos":994417600},"testCaseId":"1c987bc6-8d95-4328-bf22-eb6d75307061","id":"90a0daf5-a296-4571-9c1a-2b93325a75c9"}},{"testStepStarted":{"timestamp":{"seconds":"1643742521","nanos":995414700},"testStepId":"24ce0de3-c5e5-4065-a5c1-ef26593fbeb2","testCaseStartedId":"90a0daf5-a296-4571-9c1a-2b93325a75c9"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"4","nanos":355349200}},"timestamp":{"seconds":"1643742526","nanos":350763900},"testStepId":"24ce0de3-c5e5-4065-a5c1-ef26593fbeb2","testCaseStartedId":"90a0daf5-a296-4571-9c1a-2b93325a75c9"}},{"testStepStarted":{"timestamp":{"seconds":"1643742526","nanos":352762300},"testStepId":"37fca67b-1b44-4849-93a2-b73ddc072d2f","testCaseStartedId":"90a0daf5-a296-4571-9c1a-2b93325a75c9"}},{"testStepFinished":{"testStepResult":{"status":"FAILED","message":"java.lang.AssertionError: there is error message\r\n\tat org.junit.Assert.fail(Assert.java:89)\r\n\tat org.junit.Assert.assertTrue(Assert.java:42)\r\n\tat CucumberPageObjectModel.dashBoardPage.getConsoleLogs(dashBoardPage.java:43)\r\n\tat StepDefinition.TestStepDefinition.get_and_verify_console_logs(TestStepDefinition.java:26)\r\n\tat ?.get and verify console logs(file:///C:/Users/User/eclipse-workspace/CucumberJavaDevTools/src/test/resources/Features/TestScenarioDevTools.feature:6)\r\n","duration":{"nanos":30914900}},"timestamp":{"seconds":"1643742526","nanos":383677200},"testStepId":"37fca67b-1b44-4849-93a2-b73ddc072d2f","testCaseStartedId":"90a0daf5-a296-4571-9c1a-2b93325a75c9"}},{"testCaseFinished":{"timestamp":{"seconds":"1643742526","nanos":386667000},"testCaseStartedId":"90a0daf5-a296-4571-9c1a-2b93325a75c9"}},{"testCase":{"id":"348795e1-18e3-47db-bd6f-08e3d61bd710","pickleId":"a2849682-beaf-4391-95d8-e0271ed25d3b","testSteps":[{"id":"75693593-b1f9-42bb-977c-062e06cf6053","pickleStepId":"849d8852-d30f-4f3d-81cc-538b730ce1db","stepDefinitionIds":["a5bead4f-e14d-4bb4-a365-2b067237a915"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"string","group":{"start":37,"value":"\"https://www.w3.org/standards/webdesign/htmlcss\"","children":[{"start":38,"value":"https://www.w3.org/standards/webdesign/htmlcss","children":[{}]},{"children":[{}]}]}}]}]},{"id":"4109c35a-d70e-41c0-8b5a-1cdcde0e5adf","pickleStepId":"41f57560-8753-473c-823c-1c7c735c30e1","stepDefinitionIds":["3d27d03c-967e-433d-9ae8-00aa5bbaeb50"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"string","group":{"start":29,"value":"\"https://www.w3.org/standards/webdesign/htmlcss\"","children":[{"start":30,"value":"https://www.w3.org/standards/webdesign/htmlcss","children":[{}]},{"children":[{}]}]}}]}]}]}},{"testCaseStarted":{"timestamp":{"seconds":"1643742526","nanos":399632000},"testCaseId":"348795e1-18e3-47db-bd6f-08e3d61bd710","id":"967d6ac5-1b74-4c4e-bc47-538c5f2f8b4a"}},{"testStepStarted":{"timestamp":{"seconds":"1643742526","nanos":399632000},"testStepId":"75693593-b1f9-42bb-977c-062e06cf6053","testCaseStartedId":"967d6ac5-1b74-4c4e-bc47-538c5f2f8b4a"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"4","nanos":412198300}},"timestamp":{"seconds":"1643742530","nanos":811830300},"testStepId":"75693593-b1f9-42bb-977c-062e06cf6053","testCaseStartedId":"967d6ac5-1b74-4c4e-bc47-538c5f2f8b4a"}},{"testStepStarted":{"timestamp":{"seconds":"1643742530","nanos":811830300},"testStepId":"4109c35a-d70e-41c0-8b5a-1cdcde0e5adf","testCaseStartedId":"967d6ac5-1b74-4c4e-bc47-538c5f2f8b4a"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"1","nanos":283564600}},"timestamp":{"seconds":"1643742532","nanos":95394900},"testStepId":"4109c35a-d70e-41c0-8b5a-1cdcde0e5adf","testCaseStartedId":"967d6ac5-1b74-4c4e-bc47-538c5f2f8b4a"}},{"testCaseFinished":{"timestamp":{"seconds":"1643742532","nanos":97390600},"testCaseStartedId":"967d6ac5-1b74-4c4e-bc47-538c5f2f8b4a"}},{"testCase":{"id":"d2003c69-f374-4d9a-a451-675ee85862d4","pickleId":"98765461-9450-4d99-b6bf-e9a30fe38c3a","testSteps":[{"id":"a2d6d573-bc2c-44c9-9331-c693f700f790","pickleStepId":"5fcb5a26-1740-4a00-b7d1-fa00957915e5","stepDefinitionIds":["3190a7da-b8c8-4bcc-8de8-3ce99f9a5839"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"string","group":{"start":37,"value":"\"https://www.w3.org/standards/webofdevices/multimodal\"","children":[{"start":38,"value":"https://www.w3.org/standards/webofdevices/multimodal","children":[{}]},{"children":[{}]}]}}]}]},{"id":"dbd4aebd-09ff-46cb-8749-8da8cc2d5236","pickleStepId":"4bba7fc9-3ffc-4f44-9cf9-98bb30e29f03","stepDefinitionIds":["2036affb-624d-4c02-a7f5-9bde95bd8fad"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"string","group":{"start":29,"value":"\"https://www.w3.org/standards/webofdevices/multimodal\"","children":[{"start":30,"value":"https://www.w3.org/standards/webofdevices/multimodal","children":[{}]},{"children":[{}]}]}}]}]}]}},{"testCaseStarted":{"timestamp":{"seconds":"1643742532","nanos":100382800},"testCaseId":"d2003c69-f374-4d9a-a451-675ee85862d4","id":"11d41bc2-cd4c-4d58-bd14-7e9cf2deaea1"}},{"testStepStarted":{"timestamp":{"seconds":"1643742532","nanos":101381900},"testStepId":"a2d6d573-bc2c-44c9-9331-c693f700f790","testCaseStartedId":"11d41bc2-cd4c-4d58-bd14-7e9cf2deaea1"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"4","nanos":270573800}},"timestamp":{"seconds":"1643742536","nanos":371955700},"testStepId":"a2d6d573-bc2c-44c9-9331-c693f700f790","testCaseStartedId":"11d41bc2-cd4c-4d58-bd14-7e9cf2deaea1"}},{"testStepStarted":{"timestamp":{"seconds":"1643742536","nanos":372956100},"testStepId":"dbd4aebd-09ff-46cb-8749-8da8cc2d5236","testCaseStartedId":"11d41bc2-cd4c-4d58-bd14-7e9cf2deaea1"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"1","nanos":3312400}},"timestamp":{"seconds":"1643742537","nanos":376268500},"testStepId":"dbd4aebd-09ff-46cb-8749-8da8cc2d5236","testCaseStartedId":"11d41bc2-cd4c-4d58-bd14-7e9cf2deaea1"}},{"testCaseFinished":{"timestamp":{"seconds":"1643742537","nanos":377267400},"testCaseStartedId":"11d41bc2-cd4c-4d58-bd14-7e9cf2deaea1"}},{"testCase":{"id":"5a97cac3-494d-4696-9d0b-c3534ac29b81","pickleId":"e4b0d45b-88f8-4fd9-9151-9ae6985a8fd3","testSteps":[{"id":"32c7c563-bdc9-4f67-881d-b9934cd25c4b","pickleStepId":"01be4484-3f75-45d1-9def-d644f088c659","stepDefinitionIds":["de9aa096-4825-4e42-8c55-84a7a45bfcab"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"string","group":{"start":37,"value":"\"https://www.w3.org/standards/badpage\"","children":[{"start":38,"value":"https://www.w3.org/standards/badpage","children":[{}]},{"children":[{}]}]}}]}]},{"id":"087685ca-8089-44ac-bd4f-4c08ccd3832f","pickleStepId":"f679a08b-ab14-46b0-b4a1-05568c44e914","stepDefinitionIds":["bda0f214-b1f2-408f-a438-d1b137ab1652"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"string","group":{"start":29,"value":"\"https://www.w3.org/standards/badpage\"","children":[{"start":30,"value":"https://www.w3.org/standards/badpage","children":[{}]},{"children":[{}]}]}}]}]}]}},{"testCaseStarted":{"timestamp":{"seconds":"1643742537","nanos":381257000},"testCaseId":"5a97cac3-494d-4696-9d0b-c3534ac29b81","id":"3096aec8-2af8-4632-9951-55a1aa626f50"}},{"testStepStarted":{"timestamp":{"seconds":"1643742537","nanos":381257000},"testStepId":"32c7c563-bdc9-4f67-881d-b9934cd25c4b","testCaseStartedId":"3096aec8-2af8-4632-9951-55a1aa626f50"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"4","nanos":997631000}},"timestamp":{"seconds":"1643742542","nanos":378888000},"testStepId":"32c7c563-bdc9-4f67-881d-b9934cd25c4b","testCaseStartedId":"3096aec8-2af8-4632-9951-55a1aa626f50"}},{"testStepStarted":{"timestamp":{"seconds":"1643742542","nanos":378888000},"testStepId":"087685ca-8089-44ac-bd4f-4c08ccd3832f","testCaseStartedId":"3096aec8-2af8-4632-9951-55a1aa626f50"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"1","nanos":506968400}},"timestamp":{"seconds":"1643742543","nanos":885856400},"testStepId":"087685ca-8089-44ac-bd4f-4c08ccd3832f","testCaseStartedId":"3096aec8-2af8-4632-9951-55a1aa626f50"}},{"testCaseFinished":{"timestamp":{"seconds":"1643742543","nanos":885856400},"testCaseStartedId":"3096aec8-2af8-4632-9951-55a1aa626f50"}},{"testCase":{"id":"6f
